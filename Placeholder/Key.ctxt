@@ -1,13 +1,15 @@
 #BlueJ class context
-comment0.params=key
-comment0.target=Key(java.lang.String)
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Key\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment0.target=Key
+comment0.text=\n\ Write\ a\ description\ of\ class\ Key\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=key
+comment1.target=Key(java.lang.String)
 comment2.params=
-comment2.target=void\ checkPressed()
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Key\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment3.params=
-comment3.target=void\ resetPressedStatus()
+comment3.target=void\ checkPressed()
 comment4.params=
-comment4.target=void\ rotateBack()
-numComments=5
+comment4.target=void\ resetPressedStatus()
+comment5.params=
+comment5.target=void\ rotateBack()
+numComments=6

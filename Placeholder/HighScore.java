@@ -17,7 +17,7 @@ public class HighScore extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(810, 510, 1); 
-        addObject(new Scoreboard("ListOfScores.in"), getWidth()/2 - 100, getHeight()/2 + 100); 
+        addObject(new Scoreboard("ListOfScores.in"), getWidth()/2, getHeight()/2); 
 
         prepare();
     }

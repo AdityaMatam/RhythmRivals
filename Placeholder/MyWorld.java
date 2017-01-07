@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    int counter = 200;
+    boolean isRhythmA = true;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -19,18 +20,34 @@ public class MyWorld extends World
         super(810, 540, 1); 
         prepare();
     }
-
+    public void act(){
+        RhythmA();
+        count();
+    }
+    public void count(){
+        counter--;
+        if(counter<0){
+            counter = 200;
+        }
+    }
+    public void RhythmA(){
+        if(isRhythmA){
+            if(counter%60==0){
+                spawnBeatA();
+            }
+        }
+    }
+    public void spawnBeatA(){
+        addObject(new Orb("a"),66,0);
+        setPaintOrder(Key.class);
+    }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-        Orb orb = new Orb();
-        addObject(orb,440,246);
-        orb.setLocation(384,235);
 
-        orb.setLocation(66,270);
 
         addObject(new Key("a"),66,274);
         addObject(new Key("s"),196,274);

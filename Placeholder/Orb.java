@@ -9,13 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Orb extends Actor
 {
     GreenfootImage img = new GreenfootImage("greycircle4.png");
-    int maxWidth = img.getWidth();
-    int maxHeight = img.getHeight();
-    int currentWidth=50;
-    int currentHeight=50;
+    int currentWidth=11;
+    int currentHeight=11;
     int frame = 30;
-    public Orb(){
-        img.scale(50,50);
+    String type;
+    public Orb(String type){
+        this.type = type;
+        img.scale(currentWidth,currentHeight);
         setImage(img);
     }
     /**
@@ -25,6 +25,7 @@ public class Orb extends Actor
     public void act() 
     {
         sizeUp();
+        fall();
         checkDeletion();
     }
     public void sizeUp(){
@@ -32,18 +33,22 @@ public class Orb extends Actor
         img.scale(currentWidth,currentHeight);
         setImage(img);
         img = new GreenfootImage("greycircle4.png");
-        if(currentWidth<maxWidth){
-            currentWidth++;
-            
+        if(getY()<266){
+            currentWidth+=1;
+            currentHeight+=1;
         }
-        if(currentHeight<maxHeight){
-            currentHeight++;
+        if(getY()>=266){
+            currentHeight -= 2;
+            currentWidth -=2;
         }
     }
     public void checkDeletion(){
-        if(currentWidth == 100){
+        if(getY() >= 400){
             getWorld().removeObject(this);
         }
+    }
+    public void fall(){
+        setLocation(this.getX(),this.getY()+3);
     }
 
 }
