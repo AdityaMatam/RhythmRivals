@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Orb extends Actor
 {
-    GreenfootImage img = new GreenfootImage("greycircle.png");
+    GreenfootImage img = new GreenfootImage("greycircle4.png");
     int maxWidth = img.getWidth();
     int maxHeight = img.getHeight();
     int currentWidth=50;
@@ -31,7 +31,7 @@ public class Orb extends Actor
         
         img.scale(currentWidth,currentHeight);
         setImage(img);
-        img = new GreenfootImage("greycircle.png");
+        img = new GreenfootImage("greycircle4.png");
         if(currentWidth<maxWidth){
             currentWidth++;
             
