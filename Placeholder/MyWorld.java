@@ -17,5 +17,28 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(810, 540, 1); 
+        prepare();
+    }
+
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Orb orb = new Orb();
+        addObject(orb,440,246);
+        orb.setLocation(384,235);
+        
+
+        orb.setLocation(66,270);
+        
+        
+        addObject(new Key("a"),66,274);
+        addObject(new Key("s"),196,274);
+        addObject(new Key("d"),326,274);
+        addObject(new Key("l"),744,274);
+        addObject(new Key("k"),614,274);
+        addObject(new Key("j"),484,274);
     }
 }
