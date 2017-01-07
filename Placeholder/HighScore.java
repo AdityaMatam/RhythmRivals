@@ -28,5 +28,7 @@ public class HighScore extends World
      */
     private void prepare()
     {
+        BackButton backbutton2 = new BackButton();
+        addObject(backbutton2, 659, 488);
     }
 }
