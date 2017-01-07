@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Gameplay extends World
 {
-    int counter = 200;
+    int counter = 160;
     boolean isRhythmA = true;
     /**
      * Constructor for objects of class MyWorld.
@@ -19,34 +19,59 @@ public class Gameplay extends World
         super(810, 540, 1); 
         prepare();
     }
+
     public void act(){
         RhythmA();
         count();
     }
+
     public void count(){
         counter--;
         if(counter<0){
-            counter = 200;
+            counter = 160;
         }
     }
+
     public void RhythmA(){
         if(isRhythmA){
-            if(counter%60==0){
+            if(counter==160){
                 spawnBeatA();
             }
+            else if(counter == 130){
+                spawnBeatA();
+            }
+            else if(counter == 100){
+                spawnBeatA();
+            }
+            else if(counter == 70){
+                spawnBeatS();
+            }
+            else if(counter == 60){
+                spawnBeatS();
+            }
+            else if(counter == 30){
+                spawnBeatA();
+            }
+
         }
     }
+
     public void spawnBeatA(){
         addObject(new Orb("a"),66,0);
         setPaintOrder(Key.class);
     }
+
+    public void spawnBeatS(){
+        addObject(new Orb("s"),196,0);
+        setPaintOrder(Key.class);
+    }
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-
 
         addObject(new Key("a"),66,274);
         addObject(new Key("s"),196,274);
