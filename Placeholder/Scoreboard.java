@@ -18,7 +18,7 @@ public class Scoreboard extends Actor
     public Scoreboard(String filename) {
         this.filename = filename;
         // Populate the scoreboard with 10 zeros
-        for (int i = 0; i < list.size(); i++){
+        for (int i = 0; i < 10; i++){
             list.add(0);
         }
     }
@@ -54,7 +54,7 @@ public class Scoreboard extends Actor
      */
     public int [] topTen() {
         int [] topTenScores = new int[10];
-        for (int i = 0; i < topTenScores.length; i++) {
+        for (int i = 0; i < 10; i++) {
             topTenScores[i] = list.get(i);
         }
         return topTenScores;
@@ -68,7 +68,7 @@ public class Scoreboard extends Actor
         image.setFont (new Font ("Arial", Font.PLAIN, 20));
         image.drawString ("Top 10 High Scores", 400/2, 20);
         for (int i = 0; i < 10; i++) {
-            image.drawString (i + 1 + ". " + scores[i], 400/2, (i + 2) * 30);
+            image.drawString ((i + 1) + ". " + scores[i], 400/2, (i + 2) * 30);
         }
 
         setImage (image);
