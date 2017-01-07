@@ -30,5 +30,6 @@ public class Instructions extends World
     {
         BackButton backbutton = new BackButton();
         addObject(backbutton, 731, 501);
+        backbutton.setLocation(656, 490);
     }
 }
