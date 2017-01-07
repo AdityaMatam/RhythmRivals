@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=world
+comment0.target=Buttons(greenfoot.World)
+comment0.text=\r\n\ Constructor\ for\ buttons\r\n
+comment1.params=
+comment1.target=void\ clickButton()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Buttons\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=2
