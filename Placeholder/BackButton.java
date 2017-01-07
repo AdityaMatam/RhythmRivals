@@ -6,21 +6,18 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BackButton extends Buttons
+public class BackButton extends Actor
 {
     /**
-     * Constructor for play game button
-     */
-    public BackButton() {
-        super(new Menu());
-    }
-    /**
-     * Act - do whatever the PlayGameButton wants to do. This method is called whenever
+     * Act - do whatever the BackButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
         // Add your action code here.
-        super.clickButton();
+        if (Greenfoot.mouseClicked (this)) {
+            Greenfoot.setWorld (new Menu());
+            getWorld().removeObject(this);
+        }
     }    
 }
