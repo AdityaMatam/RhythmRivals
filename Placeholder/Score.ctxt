@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=score
+comment0.target=Score(int)
+comment0.text=\r\n\ Constructor\ for\ scores\r\n
+comment1.params=
+comment1.target=int\ getScore()
+comment1.text=\r\n\ Get\ the\ socre\ of\ the\ player\r\n
+comment2.params=n
+comment2.target=void\ addScore(int)
+comment2.text=\r\n\ Add\ the\ score\ for\ the\ players\r\n
+numComments=3
