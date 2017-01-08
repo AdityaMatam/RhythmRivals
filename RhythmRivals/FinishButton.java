@@ -20,8 +20,11 @@ public class FinishButton extends Actor
         if (Greenfoot.mousePressed(this)){
             //show scores
             Gameplay gameplay = (Gameplay)getWorld();
+            gameplay.removeObjects(gameplay.getObjects(Key.class));
             gameplay.addObject(new DisplayScore1(), 270, 270);
             gameplay.addObject(new DisplayScore2(), 540, 270);
+            gameplay.addObject(new MenuButton(),405, 200);
+            gameplay.removeObject(this);
         } 
     } 
 }

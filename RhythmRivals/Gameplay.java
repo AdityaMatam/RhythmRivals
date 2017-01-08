@@ -38,7 +38,7 @@ public class Gameplay extends World
             Rhythm();
             count();
         }
-        else if (songCounter == songs.size()) {
+        else if (songCounter == songs.size() && getObjects(MenuButton.class).isEmpty()) {
             addObject(new FinishButton(), 405, 200);
         }
         if (!waiting){
@@ -321,7 +321,7 @@ public class Gameplay extends World
         player1score.setLocation(68, 511);
         player2score.setLocation(701, 510);
         songs.add("Dramatic Chipmunk.mp3");
-        songs.add("Best Cry Ever.mp3");
+        //songs.add("Best Cry Ever.mp3");
         //songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
         //songs.add("Electro-Light - Symbolism.mp3");
         //Collections.shuffle(songs);
