@@ -13,6 +13,8 @@ public class Orb extends Actor
     int currentHeight=11;
     int frame = 30;
     String type;
+    boolean isPressed = false;
+    int transparency = 255;
     public Orb(String type){
         this.type = type;
         img.scale(currentWidth,currentHeight);
@@ -25,19 +27,38 @@ public class Orb extends Actor
      */
     public void act() 
     {
-        sizeUp();
-        fall();
-        checkDeletion();
+        if(!isPressed){
+            sizeUp();
+            fall();
+
+            checkDeletion();
+        }
+        else{
+            updateColor();
+            if(transparency>0){
+                transparency-=30;
+                if(transparency<=0){
+                    getWorld().removeObject(this);
+                }
+                else{
+                    GreenfootImage img = getImage();
+                    img.setTransparency(transparency);
+                    setImage(img);
+                }
+            }
+        }
     }
 
     public void sizeUp(){
 
         img.scale(currentWidth,currentHeight);
         setImage(img);
+
         img = new GreenfootImage("greycircle4.png");
+
         if(getY()<266){
-            currentWidth+=1;
-            currentHeight+=1;
+            currentWidth+=2;
+            currentHeight+=2;
         }
         if(getY()>=266){
             currentHeight -= 2;
@@ -46,23 +67,27 @@ public class Orb extends Actor
     }
 
     public void checkDeletion(){
-        if (Greenfoot.isKeyDown(type) && getY() < 400){
+        if (Greenfoot.isKeyDown(type) && getY() < 400 ){
+
             Gameplay world = (Gameplay)getWorld();
-            if (getY() >= 256 && getY()<= 276){
+            if (getY() >= 269 && getY()<= 279){
                 //add 2 to player score
 
                 world.addScore(100);
-                getWorld().removeObject(this);
+
+                isPressed = true;
             }
-            else if (getY() >= 236 && getY()<= 296)
+            else if (getY() >= 246 && getY()<= 286)
             {
                 //add 1 to player score
                 world.addScore(80);
-                getWorld().removeObject(this);
+
+                isPressed = true;
             }
-            else if(getY() >= 206 && getY() <= 326)
+            else if(getY() >= 236 && getY() <= 296)
             {
-                getWorld().removeObject(this);
+
+                isPressed = true;
             }
         }
         else if (getY() >= 400){
@@ -70,8 +95,30 @@ public class Orb extends Actor
         }
     }
 
+    public void updateColor(){
+        if (getY() >= 269 && getY()<= 279){
+
+            img = new GreenfootImage("fullpoints.png");
+            setImage(img);
+
+        }
+        else if (getY() >= 246 && getY()<= 286)
+        {
+
+            img = new GreenfootImage("partpoints.png");
+            setImage(img);
+
+        }
+        else if(getY() >= 206 && getY() <= 326)
+        {
+            img = new GreenfootImage("nopoints.png");
+            setImage(img);
+        }
+
+    }
+
     public void fall(){
-        setLocation(this.getX(),this.getY()+3);
+        setLocation(this.getX(),this.getY()+5);
     }
 
 }
