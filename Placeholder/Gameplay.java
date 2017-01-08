@@ -38,8 +38,8 @@ public class Gameplay extends World
             Rhythm();
             count();
         }
-        else if (songCounter > songs.size()) {
-            gameOverDisplay();
+        else if (songCounter == songs.size()) {
+            addObject(new FinishButton(), 405, 200);
         }
         if (!waiting){
             playSound();
@@ -62,7 +62,6 @@ public class Gameplay extends World
                 songName = songs.get(songCounter);
                 sound.play();
                 songCounter++;
-                System.out.println(songCounter);
                 startedFirstSong = true;
             }
             else if (!sound.isPlaying()){
@@ -324,7 +323,7 @@ public class Gameplay extends World
         songs.add("Dramatic Chipmunk.mp3");
         songs.add("Best Cry Ever.mp3");
         //songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
-        songs.add("Electro-Light - Symbolism.mp3");
+        //songs.add("Electro-Light - Symbolism.mp3");
         //Collections.shuffle(songs);
         songName = songs.get(songCounter);
         sound = new GreenfootSound(songs.get(songCounter));
