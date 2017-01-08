@@ -92,9 +92,15 @@ public class Orb extends Actor
             }
             if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("d")){
                 world.addScore1(score);
+                if(score>0){
+                    world.addObject(new PlusSign(),168,511);
+                }
             }
             else{
                 world.addScore2(score);
+                if(score>0){
+                    world.addObject(new PlusSign(),601,511);
+                }
             }
         }
         else if (getY() >= 400){

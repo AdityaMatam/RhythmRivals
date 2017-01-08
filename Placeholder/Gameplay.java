@@ -319,11 +319,11 @@ public class Gameplay extends World
         Player2Score player2score = new Player2Score(0);
         addObject(player2score, 750, 521);
         player1score.setLocation(68, 511);
-        player2score.setLocation(741, 510);
-        songs.add("Dramatic Chipmunk.mp3");
-        songs.add("Best Cry Ever.mp3");
+        player2score.setLocation(701, 510);
+        //songs.add("Dramatic Chipmunk.mp3");
+        //songs.add("Best Cry Ever.mp3");
         //songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
-        //songs.add("Electro-Light - Symbolism.mp3");
+        songs.add("Electro-Light - Symbolism.mp3");
         //Collections.shuffle(songs);
         songName = songs.get(songCounter);
         sound = new GreenfootSound(songs.get(songCounter));
