@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -10,6 +12,8 @@ public class Gameplay extends World
 {
     int counter = 160;
     boolean isRhythmA = true;
+    int songCounter=0;
+    List <String> songs = new ArrayList<String>();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -23,8 +27,18 @@ public class Gameplay extends World
     public void act(){
         RhythmA();
         count();
+        playSound();
     }
-
+    public void playSound(){
+       if (songCounter < songs.size()){
+          GreenfootSound sound = new GreenfootSound(songs.get(songCounter));
+          if (!sound.isPlaying()){
+             sound = new GreenfootSound(songs.get(songCounter));
+             sound.play();
+             songCounter++;
+          }
+       }
+    }
     public void count(){
         counter--;
         if(counter<0){
@@ -85,5 +99,7 @@ public class Gameplay extends World
         addObject(player2score, 750, 521);
         player1score.setLocation(68, 511);
         player2score.setLocation(741, 510);
+        songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
+        Collections.shuffle(songs);
     }
 }
