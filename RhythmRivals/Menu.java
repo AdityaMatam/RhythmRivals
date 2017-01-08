@@ -35,5 +35,6 @@ public class Menu extends World
         InstructionButton instructionbutton = new InstructionButton();
         addObject(instructionbutton, 413, 463);
         instructionbutton.setLocation(409, 463);
+        addObject(new Title(),405,270);
     }
 }
