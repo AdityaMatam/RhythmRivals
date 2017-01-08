@@ -8,9 +8,6 @@ import java.awt.*;
  */
 public class Title extends Actor
 {
-    public Title(){
-        setImage (new GreenfootImage ("Rhythm Rivals", 40, Color.BLACK, new Color(0,0,0,0)));
-    }
     /**
      * Act - do whatever the Title wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
