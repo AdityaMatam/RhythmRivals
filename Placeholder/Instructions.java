@@ -1,4 +1,6 @@
 import greenfoot.*;
+import java.util.*;
+import java.awt.*;
 
 /**
  * Write a description of class Instructions here.
@@ -17,8 +19,9 @@ public class Instructions extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(810, 540, 1); 
-
         prepare();
+        addObject(new Info(), getWidth()/2 - 100, getHeight()/2 + 100);
+        
     }
 
    
@@ -31,5 +34,7 @@ public class Instructions extends World
         BackButton backbutton = new BackButton();
         addObject(backbutton, 731, 501);
         backbutton.setLocation(656, 490);
+        Info info = new Info();
     }
+    
 }
