@@ -29,12 +29,12 @@ public class Info extends Actor
         image.drawString("A song will play and orbs will down from the top",10, 80);
         image.drawString("and the player will try to hit the key when the orb",10, 100);
         image.drawString("arrives as close to as the keys.",10,120);
-        image.drawString ("Everytime a player gets a perfect the player gets", 10, 140);
-        image.drawString ("100 points.",10, 160);
-        image.drawString ("Everytime a player gets a good the player gets", 10 , 180);
-        image.drawString("80 points.", 10, 200);
-        image.drawString("If a player continuously holds a key or misses the orb,", 10, 220);
-        image.drawString("then the player does not get any points.", 10, 240);
+        image.drawString ("If the orb flashes green upon hit, then the", 10, 140);
+        image.drawString ("player earns 100 points.",10, 160);
+        image.drawString ("If the orb flashes blue upon hit, then the", 10 , 180);
+        image.drawString("player earns 80 points.", 10, 200);
+        image.drawString("If the orb flashes red upon hit, then the", 10, 220);
+        image.drawString("player does not get any points.", 10, 240);
         image.drawString("Good Luck and Have fun!",10, 280);
         setImage(image);
     }
