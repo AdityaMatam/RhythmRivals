@@ -20,6 +20,6 @@ public class Player1Score extends Score
     {
         // Add your action code here.
         Gameplay world = (Gameplay)getWorld();
-        setImage (new GreenfootImage ("Player 1 Score: " + world.score, 20, Color.WHITE, Color.BLACK));
+        setImage (new GreenfootImage ("Player 1 Score: " + world.score1, 20, Color.WHITE, Color.BLACK));
     }    
 }

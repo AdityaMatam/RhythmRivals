@@ -13,12 +13,14 @@ public class Gameplay extends World
 {
     int counter = 160; 
     boolean isRhythmA = true;
-    int score = 0;
+    int score1 = 0;
+    int score2 = 0;
     int songCounter=0;
     boolean init = true;
     List <String> songs = new ArrayList<String>();
     GreenfootSound sound;
     String songName;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -32,11 +34,11 @@ public class Gameplay extends World
     public void act(){
         if (sound.isPlaying()){
             Rhythm();
+            count();
         }
         if (songCounter > songs.size() && !sound.isPlaying()) {
             gameOverDisplay();
         }
-        count();
         playSound();
     }
 
@@ -59,11 +61,15 @@ public class Gameplay extends World
         addObject(new PlayAgainButton(), 405, 270);
     }
 
-    public void addScore(int increase){
-        score += increase;
+    public void addScore1(int increase){
+        score1 += increase;
+    }
+    public void addScore2(int increase){
+        score2 += increase;
     }
 
     public void count(){
+        
         counter--;
         if(counter<0){
             counter = 160;
@@ -221,7 +227,7 @@ public class Gameplay extends World
         player1score.setLocation(68, 511);
         player2score.setLocation(741, 510);
         songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
-        //songs.add("Electro-Light - Symbolism.mp3");
+        songs.add("Electro-Light - Symbolism.mp3");
         Collections.shuffle(songs);
         songName = songs.get(songCounter);
         sound = new GreenfootSound(songs.get(songCounter));

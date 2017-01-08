@@ -24,12 +24,6 @@ public class Score extends Actor
         return score;
     }
     
-    /**
-     * Add the score for the players
-     */
-    public void addScore (int n) {
-        Gameplay world = (Gameplay)getWorld();
-        world.addScore(n);
-    }
+    
     
 }

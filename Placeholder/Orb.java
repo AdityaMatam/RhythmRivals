@@ -67,20 +67,21 @@ public class Orb extends Actor
     }
 
     public void checkDeletion(){
+        int score = 0;
         if (Greenfoot.isKeyDown(type) && getY() < 400 ){
 
             Gameplay world = (Gameplay)getWorld();
             if (getY() >= 269 && getY()<= 279){
                 //add 2 to player score
 
-                world.addScore(100);
+                score = 100;
 
                 isPressed = true;
             }
             else if (getY() >= 246 && getY()<= 286)
             {
                 //add 1 to player score
-                world.addScore(80);
+                score = 80;
 
                 isPressed = true;
             }
@@ -88,6 +89,12 @@ public class Orb extends Actor
             {
 
                 isPressed = true;
+            }
+            if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("d")){
+                world.addScore1(score);
+            }
+            else{
+                world.addScore2(score);
             }
         }
         else if (getY() >= 400){
