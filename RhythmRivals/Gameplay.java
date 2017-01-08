@@ -320,11 +320,13 @@ public class Gameplay extends World
         addObject(player2score, 750, 521);
         player1score.setLocation(68, 511);
         player2score.setLocation(701, 510);
-        songs.add("Dramatic Chipmunk.mp3");
-        //songs.add("Best Cry Ever.mp3");
-        //songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
-        //songs.add("Electro-Light - Symbolism.mp3");
-        //Collections.shuffle(songs);
+        songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
+        songs.add("Electro-Light - Symbolism.mp3");
+        songs.add("Jason Derulo - Wiggle.mp3");
+        songs.add("Kiiara - Gold (J Farell Remix).mp3");
+        songs.add("Owl City - Fireflies (Said The Sky Remix).mp3");
+        songs.add("Rihanna - Umbrella (BLU J Remix).mp3");
+        Collections.shuffle(songs);
         songName = songs.get(songCounter);
         sound = new GreenfootSound(songs.get(songCounter));
     }
