@@ -54,27 +54,56 @@ public class Gameplay extends World
     public void RhythmA(){
         if(isRhythmA){
             if(counter==160){
-                spawnBeatA();
+                spawnBeatRandom();
             }
             else if(counter == 130){
-                spawnBeatA();
+                spawnBeatRandom();
             }
             else if(counter == 100){
-                spawnBeatA();
+                spawnBeatRandom();
             }
             else if(counter == 70){
-                spawnBeatS();
+                spawnBeatRandom();
             }
             else if(counter == 60){
-                spawnBeatS();
+                spawnBeatRandom();
             }
             else if(counter == 30){
-                spawnBeatA();
+                spawnBeatRandom();
             }
 
         }
     }
-
+    
+    public void spawnBeatRandom(){
+        int player1Position = (int) (Math.random() * 3);
+        if (player1Position==0){
+            spawnBeatA();
+        }
+        else if (player1Position==1)
+        {
+            spawnBeatS();
+        }
+        else if (player1Position==2)
+        {
+            spawnBeatD();
+        }
+        int player2Position = (int) (Math.random() * 3) + 3;
+        if (player2Position==3)
+        {
+            spawnBeatJ();
+        }
+        else if (player2Position==4)
+        {
+            spawnBeatK();
+        }
+        else if (player2Position==5)
+        {
+            spawnBeatL();
+        }
+      
+    }
+    
     public void spawnBeatA(){
         addObject(new Orb("a"),66,0);
         setPaintOrder(Key.class);
@@ -84,6 +113,27 @@ public class Gameplay extends World
         addObject(new Orb("s"),196,0);
         setPaintOrder(Key.class);
     }
+    
+    public void spawnBeatD() {
+        addObject (new Orb("d"), 326, 0);
+        setPaintOrder(Key.class);
+    }
+    
+    public void spawnBeatJ() {
+        addObject (new Orb("j"), 484, 0);
+        setPaintOrder(Key.class);
+    }
+    
+    public void spawnBeatK() {
+        addObject (new Orb("k"), 614, 0);
+        setPaintOrder(Key.class);
+    }
+    
+    public void spawnBeatL() {
+        addObject (new Orb("l"), 744, 0);
+        setPaintOrder(Key.class);
+    }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
