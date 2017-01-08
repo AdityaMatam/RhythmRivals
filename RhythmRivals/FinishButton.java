@@ -17,8 +17,11 @@ public class FinishButton extends Actor
         onClick();
     }    
     public void onClick(){
-    if (Greenfoot.mousePressed(this)){
-        //show scores
-    }
+        if (Greenfoot.mousePressed(this)){
+            //show scores
+            Gameplay gameplay = (Gameplay)getWorld();
+            gameplay.addObject(new DisplayScore1(), 270, 270);
+            gameplay.addObject(new DisplayScore2(), 540, 270);
+        } 
     } 
 }

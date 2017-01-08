@@ -181,13 +181,13 @@ public class Gameplay extends World
                 spawnBeatRandom();
             }
             else if(counter == 80){
-                spawnBeatRandom();
-            }
-            else if(counter == 40){
                 spawnLeftBeat();
             }
-            else if(counter == 20){
+            else if(counter == 40){
                 spawnRightBeat();
+            }
+            else if(counter == 20){
+                spawnBeatRandom();
         }
     }
     public void RhythmE()
@@ -202,13 +202,13 @@ public class Gameplay extends World
                 spawnBeatRandom();
             }
             else if(counter == 70){
-                spawnBeatRandom();
+                spawnLeftBeat();
             }
             else if(counter == 40){
                 spawnRightBeat();
             }
             else if(counter == 20){
-                spawnLeftBeat();
+                spawnBeatRandom();
         }
     }
     public void RhythmF()
@@ -320,9 +320,9 @@ public class Gameplay extends World
         addObject(player2score, 750, 521);
         player1score.setLocation(68, 511);
         player2score.setLocation(701, 510);
-        //songs.add("Dramatic Chipmunk.mp3");
-        //songs.add("Best Cry Ever.mp3");
-        songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
+        songs.add("Dramatic Chipmunk.mp3");
+        songs.add("Best Cry Ever.mp3");
+        //songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
         //songs.add("Electro-Light - Symbolism.mp3");
         //Collections.shuffle(songs);
         songName = songs.get(songCounter);
