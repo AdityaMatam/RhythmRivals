@@ -48,16 +48,20 @@ public class Orb extends Actor
     public void checkDeletion(){
         if (Greenfoot.isKeyDown(type) && getY() < 400){
             Gameplay world = (Gameplay)getWorld();
-            if (getY() >= 261 && getY()<= 271){
+            if (getY() >= 256 && getY()<= 276){
                 //add 2 to player score
-                
+
                 world.addScore(100);
                 getWorld().removeObject(this);
             }
-            else if (getY() >= 256 && getY()<= 276)
+            else if (getY() >= 236 && getY()<= 296)
             {
                 //add 1 to player score
                 world.addScore(80);
+                getWorld().removeObject(this);
+            }
+            else if(getY() >= 206 && getY() <= 326)
+            {
                 getWorld().removeObject(this);
             }
         }
