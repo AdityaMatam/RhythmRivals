@@ -1,7 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
+
 /**
  * Write a description of class MyWorld here.
  * 
@@ -10,10 +8,9 @@ import java.util.Collections;
  */
 public class Gameplay extends World
 {
-    int counter = 160;
+    int counter = 160; 
     boolean isRhythmA = true;
-    int songCounter=0;
-    List <String> songs = new ArrayList<String>();
+    int score = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -27,17 +24,9 @@ public class Gameplay extends World
     public void act(){
         RhythmA();
         count();
-        playSound();
     }
-    public void playSound(){
-       if (songCounter < songs.size()){
-          GreenfootSound sound = new GreenfootSound(songs.get(songCounter));
-          if (!sound.isPlaying()){
-             sound = new GreenfootSound(songs.get(songCounter));
-             sound.play();
-             songCounter++;
-          }
-       }
+    public void addScore(int increase){
+        score += increase;
     }
     public void count(){
         counter--;
@@ -79,7 +68,6 @@ public class Gameplay extends World
         addObject(new Orb("s"),196,0);
         setPaintOrder(Key.class);
     }
-
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -99,7 +87,5 @@ public class Gameplay extends World
         addObject(player2score, 750, 521);
         player1score.setLocation(68, 511);
         player2score.setLocation(741, 510);
-        songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
-        Collections.shuffle(songs);
     }
 }

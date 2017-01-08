@@ -18,6 +18,7 @@ public class Orb extends Actor
         img.scale(currentWidth,currentHeight);
         setImage(img);
     }
+
     /**
      * Act - do whatever the Orb wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -28,8 +29,9 @@ public class Orb extends Actor
         fall();
         checkDeletion();
     }
+
     public void sizeUp(){
-        
+
         img.scale(currentWidth,currentHeight);
         setImage(img);
         img = new GreenfootImage("greycircle4.png");
@@ -42,11 +44,28 @@ public class Orb extends Actor
             currentWidth -=2;
         }
     }
+
     public void checkDeletion(){
-        if(getY() >= 400){
+        if (Greenfoot.isKeyDown(type) && getY() < 400){
+            Gameplay world = (Gameplay)getWorld();
+            if (getY() >= 261 && getY()<= 271){
+                //add 2 to player score
+                
+                world.addScore(100);
+                getWorld().removeObject(this);
+            }
+            else if (getY() >= 256 && getY()<= 276)
+            {
+                //add 1 to player score
+                world.addScore(80);
+                getWorld().removeObject(this);
+            }
+        }
+        else if (getY() >= 400){
             getWorld().removeObject(this);
         }
     }
+
     public void fall(){
         setLocation(this.getX(),this.getY()+3);
     }

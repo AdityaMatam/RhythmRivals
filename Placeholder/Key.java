@@ -16,6 +16,7 @@ public class Key extends Actor
         this.key = key;
         setImage(key+"-key.png");
     }
+
     /**
      * Act - do whatever the Key wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -25,6 +26,7 @@ public class Key extends Actor
         checkPressed();
         resetPressedStatus();
     }
+
     public void checkPressed(){
         if(Greenfoot.isKeyDown(key) && !isPressed){
             isPressed = true;
@@ -38,11 +40,16 @@ public class Key extends Actor
             rotateBack();
         }
     }
+
     public void resetPressedStatus(){
         if(!Greenfoot.isKeyDown(key) && isPressed){
             isPressed = false;
         }
+        if (isPressed && !Greenfoot.isKeyDown(" "))
+        {
+        }
     }
+
     public void rotateBack(){
         if(rotation>0){
             rotation-=2;

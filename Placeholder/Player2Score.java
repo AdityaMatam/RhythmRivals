@@ -18,7 +18,7 @@ public class Player2Score extends Score
      */
     public void act() 
     {
-        // Add your action code here.
-        setImage (new GreenfootImage ("Player 2 Score: " + score, 20, Color.WHITE, Color.BLACK));
+       Gameplay world = (Gameplay)getWorld();
+        setImage (new GreenfootImage ("Player 2 Score: " + world.score, 20, Color.WHITE, Color.BLACK));
     }    
 }

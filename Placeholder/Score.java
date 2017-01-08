@@ -28,7 +28,8 @@ public class Score extends Actor
      * Add the score for the players
      */
     public void addScore (int n) {
-        score += n;
+        Gameplay world = (Gameplay)getWorld();
+        world.addScore(n);
     }
     
 }
