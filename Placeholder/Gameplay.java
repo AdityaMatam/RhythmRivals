@@ -27,7 +27,7 @@ public class Gameplay extends World
     }
 
     public void act(){
-        RhythmA();
+        Rhythm();
         count();
         playSound();
     }
@@ -54,9 +54,28 @@ public class Gameplay extends World
         }
     }
 
+    public void Rhythm(){
+        //If song 1
+        String songName = songs.get(songCounter);
+        if (songName.contains("The Weeknd")){
+            RhythmA();
+        }
+        else if (songName.contains("Electro-Light")){
+            
+        }
+        else if (songName.contains("Wiggle")){
+            
+        }
+        else if (songName.contains("Gold")){
+            
+        }
+        else if (songName.contains("Fireflies")){
+            
+        }
+    }
+    
     public void RhythmA(){
-        if(isRhythmA){
-            if(counter==160){
+        if(counter==160){
                 spawnBeatRandom();
             }
             else if(counter == 130){
@@ -74,8 +93,6 @@ public class Gameplay extends World
             else if(counter == 30){
                 spawnBeatRandom();
             }
-
-        }
     }
 
     public void spawnLeftBeat(){
