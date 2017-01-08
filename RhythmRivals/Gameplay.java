@@ -181,13 +181,13 @@ public class Gameplay extends World
                 spawnBeatRandom();
             }
             else if(counter == 80){
-                spawnLeftBeat();
+                spawnBeatRandom();
             }
             else if(counter == 40){
-                spawnRightBeat();
+                spawnLeftBeat();
             }
             else if(counter == 20){
-                spawnBeatRandom();
+                spawnRightBeat();
         }
     }
     public void RhythmE()
@@ -202,13 +202,13 @@ public class Gameplay extends World
                 spawnBeatRandom();
             }
             else if(counter == 70){
-                spawnLeftBeat();
+                spawnBeatRandom();
             }
             else if(counter == 40){
                 spawnRightBeat();
             }
             else if(counter == 20){
-                spawnBeatRandom();
+                spawnLeftBeat();
         }
     }
     public void RhythmF()
@@ -322,8 +322,8 @@ public class Gameplay extends World
         player2score.setLocation(701, 510);
         //songs.add("Dramatic Chipmunk.mp3");
         //songs.add("Best Cry Ever.mp3");
-        //songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
-        songs.add("Electro-Light - Symbolism.mp3");
+        songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
+        //songs.add("Electro-Light - Symbolism.mp3");
         //Collections.shuffle(songs);
         songName = songs.get(songCounter);
         sound = new GreenfootSound(songs.get(songCounter));
