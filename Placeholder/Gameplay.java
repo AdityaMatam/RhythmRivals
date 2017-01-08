@@ -2,6 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.lang.Math;
 
 /**
  * Write a description of class MyWorld here.
@@ -16,6 +17,7 @@ public class Gameplay extends World
     int score1 = 0;
     int score2 = 0;
     int songCounter=0;
+    int random = (int )(Math.random() * 6 + 1);
     boolean init = true, waiting = false;
     List <String> songs = new ArrayList<String>();
     GreenfootSound sound;
@@ -65,6 +67,7 @@ public class Gameplay extends World
             }
             else if (!sound.isPlaying()){
                 init=true;
+                random = (int )(Math.random() * 6 + 1);
             }
         }
     }
@@ -89,75 +92,147 @@ public class Gameplay extends World
         }
     }
 
-    public void Rhythm(){
-        //If song 1
-
-        if (songName.contains("The Weeknd")){
+        public void Rhythm(){
+        if (random == 1)
             RhythmA();
-        }
-        else if (songName.contains("Electro-Light")){
+        else if (random == 2)
             RhythmB();
+        else if (random == 3)
+            RhythmC();
+        else if (random == 4)
+            RhythmD();
+        else if (random == 5)
+            RhythmE();
+        else
+            RhythmF();
+        
         }
-        else if (songName.contains("Wiggle")){
-
-        }
-        else if (songName.contains("Gold")){
-
-        }
-        else if (songName.contains("Fireflies")){
-
-        }
-        else if (songName.contains("Dramatic")){
-            RhythmA();
-        }
-        else if (songName.contains("Best Cry Ever")){
-            RhythmB();
-        }
-    }
-
     public void RhythmA(){
         if(counter==160){
-            spawnBeatRandom();
-        }
-        else if(counter == 130){
-            spawnBeatRandom();
-        }
-        else if(counter == 100){
-            spawnBeatRandom();
-        }
-        else if(counter == 70){
-            spawnLeftBeat();
-        }
-        else if(counter == 60){
-            spawnRightBeat();
-        }
-        else if(counter == 30){
-            spawnBeatRandom();
+                spawnBeatRandom();
+            }
+            else if(counter == 130){
+                spawnBeatRandom();
+            }
+            else if(counter == 100){
+                spawnBeatRandom();
+            }
+            else if(counter == 70){
+                spawnLeftBeat();
+            }
+            else if(counter == 60){
+                spawnRightBeat();
+            }
+            else if(counter == 30){
+                spawnBeatRandom();
         }
     }
-
+    
     public void RhythmB()
     {
         if(counter==160){
-            spawnBeatRandom();
-        }
-        else if(counter == 130){
-            spawnBeatRandom();
-        }
-        else if(counter == 100){
-            spawnBeatRandom();
-        }
-        else if(counter == 70){
-            spawnLeftBeat();
-        }
-        else if(counter == 60){
-            spawnRightBeat();
-        }
-        else if(counter == 30){
-            spawnBeatRandom();
+                spawnBeatRandom();
+            }
+            else if(counter == 130){
+                spawnBeatRandom();
+            }
+            else if(counter == 100){
+                spawnBeatRandom();
+            }
+            else if(counter == 70){
+                spawnLeftBeat();
+            }
+            else if(counter == 60){
+                spawnRightBeat();
+            }
+            else if(counter == 30){
+                spawnBeatRandom();
         }
     }
-
+    public void RhythmC()
+    {
+        if(counter==160){
+                spawnBeatRandom();
+            }
+            else if(counter == 140){
+                spawnBeatRandom();
+            }
+            else if(counter == 120){
+                spawnBeatRandom();
+            }
+            else if(counter == 100){
+                spawnLeftBeat();
+            }
+            else if(counter == 80){
+                spawnRightBeat();
+            }
+            else if(counter == 55){
+                spawnBeatRandom();
+        }
+    }
+    public void RhythmD()
+    {
+        if(counter==160){
+                spawnBeatRandom();
+            }
+            else if(counter == 145){
+                spawnBeatRandom();
+            }
+            else if(counter == 110){
+                spawnBeatRandom();
+            }
+            else if(counter == 80){
+                spawnLeftBeat();
+            }
+            else if(counter == 40){
+                spawnRightBeat();
+            }
+            else if(counter == 20){
+                spawnBeatRandom();
+        }
+    }
+    public void RhythmE()
+    {
+        if(counter==160){
+                spawnBeatRandom();
+            }
+            else if(counter == 120){
+                spawnBeatRandom();
+            }
+            else if(counter == 90){
+                spawnBeatRandom();
+            }
+            else if(counter == 70){
+                spawnLeftBeat();
+            }
+            else if(counter == 40){
+                spawnRightBeat();
+            }
+            else if(counter == 20){
+                spawnBeatRandom();
+        }
+    }
+    public void RhythmF()
+    {
+        if(counter==160){
+                spawnBeatRandom();
+            }
+            else if(counter == 130){
+                spawnBeatRandom();
+            }
+            else if(counter == 100){
+                spawnBeatRandom();
+            }
+            else if(counter == 70){
+                spawnLeftBeat();
+            }
+            else if(counter == 40){
+                spawnRightBeat();
+            }
+            else if(counter == 10){
+                spawnBeatRandom();
+        }
+    }
     public void spawnLeftBeat(){
         spawnBeatA();
         spawnBeatJ();
