@@ -16,11 +16,11 @@ public class Gameplay extends World
     int score1 = 0;
     int score2 = 0;
     int songCounter=0;
-    boolean init = true;
+    boolean init = true, waiting = false;
     List <String> songs = new ArrayList<String>();
     GreenfootSound sound;
     String songName;
-    
+    boolean startedFirstSong=false;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -31,32 +31,44 @@ public class Gameplay extends World
         prepare();
     }
 
-    public void act(){
+    public void act(){            
         if (sound.isPlaying()){
             Rhythm();
             count();
         }
-        if (songCounter > songs.size() && !sound.isPlaying()) {
+        else if (songCounter > songs.size()) {
             gameOverDisplay();
         }
-        playSound();
+        if (!waiting){
+            playSound();
+        }
+        if (!sound.isPlaying() && startedFirstSong && !waiting){
+            init = true;
+            waiting = true;
+            addObject(new NextButton(),405, 200);
+        }
+            
+        
+        
     }
 
-   public void playSound(){
-       if (songCounter < songs.size()){
-           if(init){
-              init=false;
-              sound = new GreenfootSound(songs.get(songCounter));
-              songName = songs.get(songCounter);
-              sound.play();
-              songCounter++;
-              System.out.println(songCounter);
-          }
-          else if (!sound.isPlaying()){
-              init = true;
-          }
-       }
+    public void playSound(){
+        if (songCounter < songs.size()){
+            if(init && !waiting){
+                init=false;
+                sound = new GreenfootSound(songs.get(songCounter));
+                songName = songs.get(songCounter);
+                sound.play();
+                songCounter++;
+                System.out.println(songCounter);
+                startedFirstSong = true;
+            }
+            else if (!sound.isPlaying()){
+                init=true;
+            }
+        }
     }
+
     public void gameOverDisplay(){
         addObject(new PlayAgainButton(), 405, 270);
     }
@@ -64,12 +76,13 @@ public class Gameplay extends World
     public void addScore1(int increase){
         score1 += increase;
     }
+
     public void addScore2(int increase){
         score2 += increase;
     }
 
     public void count(){
-        
+
         counter--;
         if(counter<0){
             counter = 160;
@@ -78,7 +91,7 @@ public class Gameplay extends World
 
     public void Rhythm(){
         //If song 1
-        
+
         if (songName.contains("The Weeknd")){
             RhythmA();
         }
@@ -86,56 +99,62 @@ public class Gameplay extends World
             RhythmB();
         }
         else if (songName.contains("Wiggle")){
-            
+
         }
         else if (songName.contains("Gold")){
-            
+
         }
         else if (songName.contains("Fireflies")){
-            
+
+        }
+        else if (songName.contains("Dramatic")){
+            RhythmA();
+        }
+        else if (songName.contains("Best Cry Ever")){
+            RhythmB();
         }
     }
-    
+
     public void RhythmA(){
         if(counter==160){
-                spawnBeatRandom();
-            }
-            else if(counter == 130){
-                spawnBeatRandom();
-            }
-            else if(counter == 100){
-                spawnBeatRandom();
-            }
-            else if(counter == 70){
-                spawnLeftBeat();
-            }
-            else if(counter == 60){
-                spawnRightBeat();
-            }
-            else if(counter == 30){
-                spawnBeatRandom();
+            spawnBeatRandom();
+        }
+        else if(counter == 130){
+            spawnBeatRandom();
+        }
+        else if(counter == 100){
+            spawnBeatRandom();
+        }
+        else if(counter == 70){
+            spawnLeftBeat();
+        }
+        else if(counter == 60){
+            spawnRightBeat();
+        }
+        else if(counter == 30){
+            spawnBeatRandom();
         }
     }
-    
+
     public void RhythmB()
     {
         if(counter==160){
-                spawnBeatRandom();
-            }
-            else if(counter == 130){
-                spawnBeatRandom();
-            }
-            else if(counter == 100){
-                spawnBeatRandom();
-            }
-            else if(counter == 70){
-                spawnLeftBeat();
-            }
-            else if(counter == 60){
-                spawnRightBeat();
-            }
-            else if(counter == 30){
-                spawnBeatRandom();
+            spawnBeatRandom();
+        }
+        else if(counter == 130){
+            spawnBeatRandom();
+        }
+        else if(counter == 100){
+            spawnBeatRandom();
+        }
+        else if(counter == 70){
+            spawnLeftBeat();
+        }
+        else if(counter == 60){
+            spawnRightBeat();
+        }
+        else if(counter == 30){
+            spawnBeatRandom();
         }
     }
 
@@ -148,6 +167,7 @@ public class Gameplay extends World
         spawnBeatD();
         spawnBeatL();
     }
+
     public void spawnBeatRandom(){
         int player1Position = (int) (Math.random() * 3);
         if (player1Position==0){
@@ -226,9 +246,11 @@ public class Gameplay extends World
         addObject(player2score, 750, 521);
         player1score.setLocation(68, 511);
         player2score.setLocation(741, 510);
-        songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
+        songs.add("Dramatic Chipmunk.mp3");
+        songs.add("Best Cry Ever.mp3");
+        //songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
         songs.add("Electro-Light - Symbolism.mp3");
-        Collections.shuffle(songs);
+        //Collections.shuffle(songs);
         songName = songs.get(songCounter);
         sound = new GreenfootSound(songs.get(songCounter));
     }
