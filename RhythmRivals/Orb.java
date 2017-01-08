@@ -90,7 +90,7 @@ public class Orb extends Actor
 
                 isPressed = true;
             }
-            if(Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("d")){
+            if(type =="a" || type=="s" || type=="d"){
                 world.addScore1(score);
                 if(score>0){
                     world.addObject(new PlusSign(),168,511);
