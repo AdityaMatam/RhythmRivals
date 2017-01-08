@@ -15,7 +15,10 @@ public class Gameplay extends World
     boolean isRhythmA = true;
     int score = 0;
     int songCounter=0;
+    boolean init = true;
     List <String> songs = new ArrayList<String>();
+    GreenfootSound sound;
+    String songName;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -27,20 +30,33 @@ public class Gameplay extends World
     }
 
     public void act(){
-        Rhythm();
+        if (sound.isPlaying()){
+            Rhythm();
+        }
+        if (songCounter > songs.size() && !sound.isPlaying()) {
+            gameOverDisplay();
+        }
         count();
         playSound();
     }
 
-    public void playSound(){
-        if (songCounter < songs.size()){
-            GreenfootSound sound = new GreenfootSound(songs.get(songCounter));
-            if (!sound.isPlaying()){
-                sound = new GreenfootSound(songs.get(songCounter));
-                sound.play();
-                songCounter++;
-            }
-        }
+   public void playSound(){
+       if (songCounter < songs.size()){
+           if(init){
+              init=false;
+              sound = new GreenfootSound(songs.get(songCounter));
+              songName = songs.get(songCounter);
+              sound.play();
+              songCounter++;
+              System.out.println(songCounter);
+          }
+          else if (!sound.isPlaying()){
+              init = true;
+          }
+       }
+    }
+    public void gameOverDisplay(){
+        addObject(new PlayAgainButton(), 405, 270);
     }
 
     public void addScore(int increase){
@@ -56,12 +72,12 @@ public class Gameplay extends World
 
     public void Rhythm(){
         //If song 1
-        String songName = songs.get(songCounter);
+        
         if (songName.contains("The Weeknd")){
             RhythmA();
         }
         else if (songName.contains("Electro-Light")){
-            
+            RhythmB();
         }
         else if (songName.contains("Wiggle")){
             
@@ -92,7 +108,29 @@ public class Gameplay extends World
             }
             else if(counter == 30){
                 spawnBeatRandom();
+        }
+    }
+    
+    public void RhythmB()
+    {
+        if(counter==160){
+                spawnBeatRandom();
             }
+            else if(counter == 130){
+                spawnBeatRandom();
+            }
+            else if(counter == 100){
+                spawnBeatRandom();
+            }
+            else if(counter == 70){
+                spawnLeftBeat();
+            }
+            else if(counter == 60){
+                spawnRightBeat();
+            }
+            else if(counter == 30){
+                spawnBeatRandom();
+        }
     }
 
     public void spawnLeftBeat(){
@@ -183,6 +221,9 @@ public class Gameplay extends World
         player1score.setLocation(68, 511);
         player2score.setLocation(741, 510);
         songs.add("The Weeknd - Starboy (Beatbox Cover) ft. Daft Punk - by KRNFX.mp3");
+        //songs.add("Electro-Light - Symbolism.mp3");
         Collections.shuffle(songs);
+        songName = songs.get(songCounter);
+        sound = new GreenfootSound(songs.get(songCounter));
     }
 }
